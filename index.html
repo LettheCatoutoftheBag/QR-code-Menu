@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>歐舍咖啡線上菜單</title>
+    <meta name="theme-color" content="#85a817" />
+    <link rel="stylesheet" href="css/common.css" />
+  </head>
+  <body>
+    <section id="langGate" class="hidden">
+      <div class="gate-box">
+        <h1>選擇語言 / Choose Language</h1>
+        <div class="lang-btns">
+          <button data-lang="zh">繁體中文</button>
+          <button data-lang="en">English</button>
+          <button data-lang="yue">廣東話</button>
+          <button data-lang="ko">한국어</button>
+          <button data-lang="ja">日本語</button>
+        </div>
+      </div>
+    </section>
+
+    <div id="app">
+      <header>
+        <div>
+          <h1 id="title"></h1>
+          <p id="subtitle"></p>
+        </div>
+        <button id="langBtn">🌐</button>
+      </header>
+
+      <nav class="main-tabs">
+        <button class="tab active" data-cat="pour_over">
+          <span>☕</span><span id="t1"></span>
+        </button>
+        <button class="tab disabled" data-cat="espresso">
+          <span>☕</span><span id="t2"></span>
+        </button>
+        <button class="tab disabled" data-cat="signature">
+          <span>🍹</span><span id="t3"></span>
+        </button>
+        <button class="tab disabled" data-cat="beverages">
+          <span>🥤</span><span id="t4"></span>
+        </button>
+        <button class="tab disabled" data-cat="desserts">
+          <span>🍰</span><span id="t5"></span>
+        </button>
+      </nav>
+
+      <nav id="subTabs" class="sub-tabs">
+        <button class="tab active" data-sub="all" id="s1"></button>
+        <button class="tab" data-sub="estate" id="s2"></button>
+        <button class="tab" data-sub="competition" id="s3"></button>
+        <button class="tab" data-sub="geisha" id="s4"></button>
+        <button class="tab" data-sub="limited" id="s5"></button>
+      </nav>
+
+      <div class="search">
+        <input id="search" type="search" placeholder="" />
+      </div>
+      <div id="list"></div>
+      <footer>歐舍咖啡 Copyright 2002~2025</footer>
+    </div>
+
+    <script src="js/common/config.js"></script>
+    <script src="js/common/i18n.js"></script>
+    <script src="js/common/utils.js"></script>
+    <script src="js/common/ui.js"></script>
+    <script src="js/modules/pourover.js"></script>
+    <script src="js/common/app.js"></script>
+  </body>
+</html>
