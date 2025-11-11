@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap");
 
 :root {
   --brand: #85a817;
@@ -145,11 +145,6 @@ header button {
   display: grid;
   gap: 1rem;
 }
-@media (min-width: 768px) {
-  #list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
 .card {
   background: var(--card);
@@ -256,9 +251,10 @@ details[open] .chev {
   padding: 0 1rem 1rem;
   color: var(--text2);
 }
+/* 按下箭頭後會出現下方產區等資訊
 details[open] .content {
   display: block;
-}
+}*/
 .content strong {
   color: var(--text);
 }
@@ -351,4 +347,56 @@ footer {
   .main-tabs .tab span:last-child {
     font-size: 0.75rem;
   }
+}
+@media (min-width: 768px) {
+  #list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  #app.layout-single-column #list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -------------------------------
+ * Image Modal (共用元件)
+ * ------------------------------- */
+.image-modal-container {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+
+/* 用 .hidden 控制顯示/隱藏，避免 CSS 權重問題 */
+.image-modal-container.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.image-modal-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow2);
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
 }

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "bev-001",
+    "name_zh": "精品紅茶",
+    "name_en": "Specialty Black Tea",
+    "tags_zh": ["花香", "果香", "甘甜"],
+    "tags_en": ["Floral", "Fruity", "Sweet"],
+    "description_zh": "來自高海拔產區的精選紅茶，帶有天然的花香與蜜香，口感甘甜滑順。",
+    "description_en": "Selected black tea from high-altitude estates, offering natural floral and honey notes with a sweet, smooth finish.",
+    "price": 90,
+    "image_name": "beverage_black_tea.jpg",
+    "is_sold_out": "false"
+  },
+  {
+    "id": "bev-002",
+    "name_zh": "抹茶歐蕾",
+    "name_en": "Matcha Latte",
+    "tags_zh": ["濃厚", "海苔", "無糖可"],
+    "tags_en": ["Rich", "Nori", "Unsweetened available"],
+    "description_zh": "使用日本進口高品質抹茶粉，茶香濃厚，與牛奶交織出醇厚口感。",
+    "description_en": "Made with high-quality matcha powder imported from Japan, creating a rich tea flavor and mellow taste.",
+    "price": 130,
+    "image_name": "beverage_matcha_latte.jpg",
+    "is_sold_out": "false"
+  }
+]

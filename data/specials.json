@@ -1,0 +1,26 @@
+[
+  {
+    "id": "sig-001",
+    "name_zh": "西西里檸檬咖啡",
+    "name_en": "Espresso Romano",
+    "tags_zh": ["清爽", "檸檬", "酸甜"],
+    "tags_en": ["Refreshing", "Lemon", "Sweet & Sour"],
+    "description_zh": "新鮮檸檬汁與濃縮咖啡的完美碰撞，帶有清新的果酸與微甜尾韻。",
+    "description_en": "A refreshing collision of fresh lemon juice and rich espresso, with a clean, sweet finish.",
+    "price": 140,
+    "image_name": "signature_romano.jpg",
+    "is_sold_out": "false"
+  },
+  {
+    "id": "sig-002",
+    "name_zh": "通寧咖啡",
+    "name_en": "Espresso Tonic",
+    "tags_zh": ["氣泡", "柑橘", "層次"],
+    "tags_en": ["Sparkling", "Citrus", "Layered"],
+    "description_zh": "口感清爽的通寧水，襯托出濃縮咖啡的明亮果香與層次感。",
+    "description_en": "Crisp tonic water highlights the bright, fruity notes and complexity of the espresso.",
+    "price": 150,
+    "image_name": "signature_tonic.jpg",
+    "is_sold_out": "false"
+  }
+]

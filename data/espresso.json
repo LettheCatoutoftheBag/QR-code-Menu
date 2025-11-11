@@ -1,0 +1,38 @@
+[
+  {
+    "id": "esp-001",
+    "name_zh": "經典美式",
+    "name_en": "Caffè Americano",
+    "tags_zh": ["均衡", "堅果", "清爽"],
+    "tags_en": ["Balanced", "Nutty", "Refreshing"],
+    "description_zh": "黃金比例的濃縮咖啡與熱水，帶出咖啡豆的純粹香氣，口感均衡滑順。",
+    "description_en": "The perfect balance of rich espresso and hot water, delivering a smooth and refreshing cup.",
+    "price": 100,
+    "image_name": "espresso_americano.jpg",
+    "is_sold_out": "false"
+  },
+  {
+    "id": "esp-002",
+    "name_zh": "拿鐵",
+    "name_en": "Caffè Latte",
+    "tags_zh": ["香醇", "牛奶", "綿密"],
+    "tags_en": ["Mellow", "Milk", "Creamy"],
+    "description_zh": "濃縮咖啡與絲滑的蒸氣牛奶完美融合，口感綿密，風味香醇。",
+    "description_en": "Rich espresso blended with silky steamed milk for a creamy, mellow flavor.",
+    "price": 120,
+    "image_name": "espresso_latte.jpg",
+    "is_sold_out": "false"
+  },
+  {
+    "id": "esp-003",
+    "name_zh": "卡布奇諾",
+    "name_en": "Cappuccino",
+    "tags_zh": ["濃厚", "奶泡", "可可"],
+    "tags_en": ["Rich", "Foamy", "Cocoa"],
+    "description_zh": "傳統的義式經典，厚實的奶泡、蒸氣牛奶與濃縮咖啡交織出濃厚口感。",
+    "description_en": "A classic Italian favorite. Rich espresso, steamed milk, and a deep layer of foam.",
+    "price": 120,
+    "image_name": "espresso_cappuccino.jpg",
+    "is_sold_out": "true"
+  }
+]
