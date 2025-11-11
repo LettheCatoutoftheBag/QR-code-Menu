@@ -2,6 +2,7 @@ const App = {
   lang: localStorage.getItem(CONFIG.LANG_KEY),
   cat: "pour_over",
   sub: "all",
+  sub_bev: "all",
   data: {},
 
   async init() {
@@ -61,6 +62,13 @@ const App = {
       })
     );
 
+    // ⭐ 監聽 '其他飲品' 篩選
+    Utils.$$("#subTabsBeverages .tab").forEach((t) =>
+      t.addEventListener("click", () => {
+        this.setSubBev(t.dataset.sub);
+      })
+    );
+
     // 搜尋
     Utils.$("#search").addEventListener("input", () => this.render());
 
@@ -72,7 +80,20 @@ const App = {
 
     // 使用事件委派 (Event Delegation) 監聽 #list
     Utils.$("#list").addEventListener("click", (e) => {
-      // --- 優先權 1：點擊 放大鏡 ---
+      // --- ⭐ 優先權 1A：點擊 點心圖片 (Phase 5 新增) ---
+      const imgPreview = e.target.closest(".card-image-preview");
+      if (imgPreview) {
+        e.preventDefault(); // 阻止 <details> 標籤被觸發
+
+        const imgSrc = imgPreview.dataset.imgSrc;
+        if (imgSrc) {
+          modalImg.src = imgSrc;
+          modal.classList.remove("hidden");
+        }
+        return; // 處理完畢
+      }
+
+      // --- 優先權 1B：點擊 放大鏡 (Phase 2-4) ---
       const zoomBtn = e.target.closest(".zoom-icon");
       if (zoomBtn) {
         e.preventDefault(); // 阻止 <details> 標籤被觸發
@@ -91,13 +112,12 @@ const App = {
         e.preventDefault(); // 阻止事件穿透
 
         const detailsCard = overlay.closest("details");
-        // 檢查是否已在關閉中，避免重複觸發
         if (detailsCard && !detailsCard.classList.contains("is-closing")) {
           detailsCard.classList.add("is-closing");
           setTimeout(() => {
             detailsCard.removeAttribute("open");
             detailsCard.classList.remove("is-closing");
-          }, 350); // 0.35s = 350ms
+          }, 350);
         }
         return; // 處理完畢
       }
@@ -112,7 +132,6 @@ const App = {
 
         if (detailsCard.hasAttribute("open")) {
           // --- 執行關閉 ---
-          // (和上面遮蓋層的邏輯一樣)
           if (!detailsCard.classList.contains("is-closing")) {
             detailsCard.classList.add("is-closing");
             setTimeout(() => {
@@ -121,16 +140,11 @@ const App = {
             }, 350);
           }
         } else {
-          // --- ⭐ 執行開啟 (最終修正 2.0) ---
-
+          // --- 執行開啟 ---
           detailsCard.classList.remove("is-closing");
-
-          // ⭐ 關鍵修正：使用 setTimeout(0)
-          // 這會將 "setAttribute" 推遲到下一個事件循環
-          // 確保瀏覽器 100% 完成了當前元素的繪製
           setTimeout(() => {
             detailsCard.setAttribute("open", "");
-          }, 0); // 0 毫秒延遲
+          }, 0);
         }
         return; // 處理完畢
       }
@@ -158,20 +172,41 @@ const App = {
 
   async setCat(cat) {
     this.cat = cat;
+
+    // --- ⭐ 修正 1：動態顏色地圖 ---
+    const COLOR_MAP = {
+      // 顏色: [主色 (按鈕), 漸層色 (遮蓋層), 文字色]
+      pour_over: ["#c7a77f", "#f7f1eb", "#fff"], // 琥珀色
+      espresso: ["#503629", "#eae7e5", "#fff"], // 棕色
+      signature: ["#d90429", "#fde6ea", "#fff"], // 亮紅色
+      beverages: ["#0077b6", "#e6f2f8", "#fff"], // 藍色
+      desserts: ["#ffc629", "#fff9e9", "#3d2f27"], // 黃色 (配深色文字)
+    };
+
+    // 取得當前顏色，若無則預設
+    const colors = COLOR_MAP[cat] || ["#85a817", "#f3f6ec", "#fff"];
+
+    // 將顏色設定為 CSS 變數
+    const root = document.documentElement;
+    root.style.setProperty("--brand-active", colors[0]);
+    root.style.setProperty("--brand-active-tint", colors[1]);
+    root.style.setProperty("--brand-active-text", colors[2]);
+    // --- 顏色修正結束 ---
+
+    // 更新頁籤的 'active' class
     Utils.$$(".main-tabs .tab").forEach((t) =>
       t.classList.toggle("active", t.dataset.cat === cat)
     );
 
-    // --- 修正 1 & 2：根據頁籤切換 UI ---
+    // --- ⭐ 修正 3：顯示/隱藏 "手沖" 或 "飲品" 的次標籤 ---
     const isPourOver = cat === "pour_over";
+    const isBeverages = cat === "beverages";
 
-    // 1. 顯示/隱藏 次標籤
     Utils.$("#subTabs").classList.toggle("hidden", !isPourOver);
-    // 1. 顯示/隱藏 搜尋列 (它在 index.html 中的 class 是 .search)
-    Utils.$(".search").classList.toggle("hidden", !isPourOver);
-    // 2. 切換 單/雙 欄版面 (在 #app 加上 class)
+    Utils.$("#subTabsBeverages").classList.toggle("hidden", !isBeverages); // 新增
+    Utils.$(".search").classList.toggle("hidden", !isPourOver); // 搜尋只給手沖
+
     Utils.$("#app").classList.toggle("layout-single-column", isPourOver);
-    // --- 結束 ---
 
     if (!this.data[cat]) await this.loadCat(cat);
 
@@ -182,6 +217,15 @@ const App = {
   setSub(sub) {
     this.sub = sub;
     Utils.$$(".sub-tabs .tab").forEach((t) =>
+      t.classList.toggle("active", t.dataset.sub === sub)
+    );
+    this.render();
+  },
+
+  // 新增 '其他飲品' 篩選的函式
+  setSubBev(sub) {
+    this.sub_bev = sub;
+    Utils.$$("#subTabsBeverages .tab").forEach((t) =>
       t.classList.toggle("active", t.dataset.sub === sub)
     );
     this.render();
@@ -203,6 +247,7 @@ const App = {
       espresso: Espresso,
       signature: Specials,
       beverages: Beverages,
+      desserts: Desserts,
     };
     // -------------------------
 
@@ -214,6 +259,14 @@ const App = {
     if (this.cat === "pour_over" && this.sub !== "all") {
       items = items.filter(
         (it) => (it.category || "").toLowerCase() === this.sub
+      );
+    }
+
+    // 加入 '其他飲品' 篩選邏輯
+    if (this.cat === "beverages" && this.sub_bev !== "all") {
+      // (假設 all 是預設, 'caffeine_free' 是 data-sub)
+      items = items.filter(
+        (it) => (it.caffeine_free || "").toLowerCase() === "true"
       );
     }
 

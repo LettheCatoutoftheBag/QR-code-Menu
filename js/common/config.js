@@ -6,6 +6,7 @@ const CONFIG = {
     espresso: "data/espresso.json",
     signature: "data/specials.json",
     beverages: "data/beverages.json",
+    desserts: "data/desserts.json",
   },
 
   // --- 新增 ---

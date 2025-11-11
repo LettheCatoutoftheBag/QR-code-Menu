@@ -9,7 +9,8 @@
     "description_en": "Selected black tea from high-altitude estates, offering natural floral and honey notes with a sweet, smooth finish.",
     "price": 90,
     "image_name": "beverage_black_tea.jpg",
-    "is_sold_out": "false"
+    "is_sold_out": "false",
+    "caffeine_free": "true"
   },
   {
     "id": "bev-002",
@@ -21,6 +22,7 @@
     "description_en": "Made with high-quality matcha powder imported from Japan, creating a rich tea flavor and mellow taste.",
     "price": 130,
     "image_name": "beverage_matcha_latte.jpg",
-    "is_sold_out": "false"
+    "is_sold_out": "false",
+    "caffeine_free": "false"
   }
 ]

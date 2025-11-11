@@ -4,6 +4,7 @@ const I18N = {
     subtitle: {
       pour_over:
         "· 莊園級 $150/杯\n· 競賽級 $200/杯\n· 瑰夏 $300/杯\n· 限量版價格請至櫃檯詢問",
+      // (你可以為 espresso, signature 等新增副標題)
     },
     tabs: {
       pour_over: "手沖豆單",
@@ -18,6 +19,8 @@ const I18N = {
       competition: "競賽級",
       geisha: "瑰夏",
       limited: "限量版",
+      b1: "全部", // ⭐ 新增
+      b2: "無咖啡因", // ⭐ 新增
     },
     search: "搜尋：品名、產區、風味...",
     empty: "沒有符合的品項",
@@ -41,6 +44,8 @@ const I18N = {
       competition: "Competition",
       geisha: "Geisha",
       limited: "Limited",
+      b1: "All",
+      b2: "Caffeine Free",
     },
     search: "Search: name, origin, flavor...",
     empty: "No items found",
@@ -64,6 +69,8 @@ const I18N = {
       competition: "競賽級",
       geisha: "瑰夏",
       limited: "限量版",
+      b1: "全部",
+      b2: "無咖啡因",
     },
     search: "搜尋：品名、產區、風味...",
     empty: "冇搵到相符嘅品項",
@@ -87,6 +94,8 @@ const I18N = {
       competition: "대회급",
       geisha: "게이샤",
       limited: "한정판",
+      b1: "전체", // ⭐ 新增
+      b2: "디카페인", // ⭐ 新增
     },
     search: "검색: 이름, 원산지, 풍미...",
     empty: "항목을 찾을 수 없습니다",
@@ -110,6 +119,8 @@ const I18N = {
       competition: "コンペ",
       geisha: "ゲイシャ",
       limited: "限定版",
+      b1: "すべて", // ⭐ 新增
+      b2: "カフェインレス", // ⭐ 新增
     },
     search: "検索: 名前、産地、風味...",
     empty: "アイテムが見つかりません",

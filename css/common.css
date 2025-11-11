@@ -85,11 +85,11 @@ header button {
 .main-tabs .tab span:last-child {
   font-size: 0.85rem;
 }
-.main-tabs .tab:hover:not(.disabled),
+
 .main-tabs .tab.active {
-  border-color: var(--brand);
-  background: var(--brand);
-  color: #fff;
+  border-color: var(--brand-active);
+  background: var(--brand-active);
+  color: var(--brand-active-text);
 }
 .main-tabs .tab.disabled {
   opacity: 0.3;
@@ -119,9 +119,9 @@ header button {
 }
 .sub-tabs .tab:hover,
 .sub-tabs .tab.active {
-  background: var(--brand);
-  color: #fff;
-  border-color: var(--brand);
+  background: var(--brand-active);
+  color: var(--brand-active-text);
+  border-color: var(--brand-active);
 }
 
 .search {
@@ -267,7 +267,11 @@ details[open] .content {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--card);
+  background: linear-gradient(
+    to right,
+    var(--card) 0%,
+    var(--brand-active-tint) 100%
+  );
   padding: 0 1.5rem;
   font-weight: 700;
   font-size: 1.75rem;
@@ -335,11 +339,6 @@ footer {
   display: none;
 }
 
-@media (max-width: 767px) {
-  .card-head {
-    flex-direction: column;
-  }
-}
 @media (max-width: 639px) {
   .main-tabs .tab span:first-child {
     font-size: 1.25rem;
@@ -399,4 +398,33 @@ footer {
   font-size: 2.5rem;
   font-weight: bold;
   cursor: pointer;
+}
+
+/* -------------------------------
+ * 修正：修正 Hover 顏色 (靜態)
+ * ------------------------------- */
+.main-tabs .tab[data-cat="pour_over"]:hover:not(.disabled) {
+  background: #c7a77f; /* 琥珀色 */
+  border-color: #c7a77f;
+  color: #fff;
+}
+.main-tabs .tab[data-cat="espresso"]:hover:not(.disabled) {
+  background: #503629; /* 棕色 */
+  border-color: #503629;
+  color: #fff;
+}
+.main-tabs .tab[data-cat="signature"]:hover:not(.disabled) {
+  background: #d90429; /* 亮紅色 */
+  border-color: #d90429;
+  color: #fff;
+}
+.main-tabs .tab[data-cat="beverages"]:hover:not(.disabled) {
+  background: #0077b6; /* 藍色 */
+  border-color: #0077b6;
+  color: #fff;
+}
+.main-tabs .tab[data-cat="desserts"]:hover:not(.disabled) {
+  background: #ffc629; /* 黃色 */
+  border-color: #ffc629;
+  color: #3d2f27; /* 黃色配深色文字 */
 }

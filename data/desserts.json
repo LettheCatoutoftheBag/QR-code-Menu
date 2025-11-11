@@ -1,0 +1,26 @@
+[
+  {
+    "id": "des-001",
+    "name_zh": "巴斯克乳酪蛋糕",
+    "name_en": "Basque Burnt Cheesecake",
+    "tags_zh": ["焦香", "綿密", "乳酪"],
+    "tags_en": ["Caramelized", "Creamy", "Cheese"],
+    "description_zh": "經典的焦香風味，外層焦黑，內心卻保持著令人難以抗拒的綿密與濕潤口感。",
+    "description_en": "The classic burnt top offers a deep caramelized flavor, contrasting the incredibly creamy and smooth center.",
+    "price": 120,
+    "image_name": "dessert_basque.jpg",
+    "is_sold_out": "false"
+  },
+  {
+    "id": "des-002",
+    "name_zh": "可麗露",
+    "name_en": "Canelé",
+    "tags_zh": ["酥脆", "香草", "蘭姆酒"],
+    "tags_en": ["Crispy", "Vanilla", "Rum"],
+    "description_zh": "外層是焦糖化的深褐色酥殼，內部則是充滿香草與蘭姆酒香氣的柔軟 Q 彈糕體。",
+    "description_en": "A dark, caramelized crispy crust gives way to a tender, custardy center flavored with vanilla and rum.",
+    "price": 80,
+    "image_name": "dessert_canele.jpg",
+    "is_sold_out": "false"
+  }
+]

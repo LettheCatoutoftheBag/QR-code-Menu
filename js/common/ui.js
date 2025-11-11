@@ -16,6 +16,9 @@ const UI = {
     Utils.$("#s3").textContent = t.subs.competition;
     Utils.$("#s4").textContent = t.subs.geisha;
     Utils.$("#s5").textContent = t.subs.limited;
+
+    Utils.$("#b1").textContent = t.subs.b1;
+    Utils.$("#b2").textContent = t.subs.b2;
   },
 
   showEmpty(lang) {

@@ -29,10 +29,11 @@
   bottom: 0;
   left: 0; /* 佔滿整張卡 */
   display: flex;
-  background: var(--card); /* 備用背景 */
-
-  /* 修正 3c：由左至右漸層 (從 --card 到 --bg) */
-  background: linear-gradient(to right, var(--card) 0%, var(--bg) 100%);
+  background: linear-gradient(
+    to right,
+    var(--card) 0%,
+    var(--brand-active-tint) 100%
+  );
 
   /* 預設隱藏 (滑出卡片外) */
   transform: translateX(100%);
