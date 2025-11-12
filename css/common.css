@@ -147,7 +147,11 @@ header button {
 }
 
 .card {
-  background: var(--card);
+  background: linear-gradient(
+    to right,
+    var(--card) 0%,
+    var(--brand-active-tint) 100%
+  );
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -202,8 +206,7 @@ header button {
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
 }
-.roast-light,
-.roast-lightmedium {
+.roast-light {
   background: #ffc629;
 }
 .roast-medium {
@@ -267,11 +270,7 @@ details[open] .content {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(
-    to right,
-    var(--card) 0%,
-    var(--brand-active-tint) 100%
-  );
+  background: var(--card);
   padding: 0 1.5rem;
   font-weight: 700;
   font-size: 1.75rem;

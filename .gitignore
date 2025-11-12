@@ -1,0 +1,21 @@
+# 作業系統檔案
+.DS_Store
+Thumbs.db
+
+# 編輯器檔案
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 備份檔案
+*.bak
+*.backup
+
+# 測試資料
+/data/
+
+# 環境變數
+.env
+.env.local

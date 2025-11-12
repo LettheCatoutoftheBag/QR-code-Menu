@@ -1,18 +1,41 @@
 const PourOver = {
   render(item, lang) {
-    const feat = (item.is_featured || "").toLowerCase() === "true";
-    const tags = Utils.pick(item, "flavor_tags", lang)
-      .split("|")
-      .map((s) => s.trim())
-      .filter(Boolean);
-    const roastZh = CONFIG.ROAST_MAP[item.roast] || item.roast;
-    const roastTxt = `${roastZh}焙 ${item.roast}`;
-    const taste = (item.taste || "").replace(/\\n|\n/g, "<br>");
-    const star = feat ? '<span class="star">⭐</span>' : "";
+    // --- ⬇︎ 合併自 V2 (Req 1: 多語言支援) ---
+    let name, subName;
+    if (lang === "zh") {
+      name = item.name_zh;
+      subName = item.name_en;
+    } else if (lang === "en") {
+      name = item.name_en;
+      subName = item.name_zh;
+    } else {
+      // 適用於 ja, ko, yue
+      name = item.name_en; // 主標題(中文)欄位顯示英文
+      subName = item[`name_${lang}`] || item.name_zh; // 子標題顯示該語系 (若GSheet無資料則備用中文)
+    }
+    // --- ⬆︎ 合併自 V2 ---
+
+    // --- ⬇︎ 合併自 V2 (Req 2: 標籤處理) ---
+    // 確保 tags 是一個陣列，以避免 .map 錯誤
+    const tags = (lang === "zh" ? item.tags_zh : item.tags_en) || [];
+    // --- ⬆︎ 合併自 V2 ---
+
+    // --- ⬇︎ 合併自 V2 (Req 3: 烘焙度顯示) ---
+    const roast = CONFIG.ROAST_MAP[item.roast] || item.roast;
+    // --- ⬆︎ 合併自 V2 ---
+
+    // --- ⬇︎ 保留自 V1 (Req 4, 7) ---
+    const feat = item.is_featured === true;
+    const taste = (item.taste || "").replace(/\\n|\n/g, "<br>"); // (Req 4: 保留換行處理)
+    const star = feat ? '<span class="star">⭐</span>' : ""; // (Req 7: 保留 V1 圖示)
     const roastCls = (item.roast || "").toLowerCase().replace("-", "");
+    // --- ⬆︎ 保留自 V1 ---
+
+    // --- ⬇︎ 保留自 V1 (Req 6: 價格位置) ---
     const priceHtml = item.price
       ? `<div class="price-right">$${item.price}</div>`
       : "";
+    // --- ⬆︎ 保留自 V1 ---
 
     const d = document.createElement("details");
     d.className = `card ${feat ? "featured" : ""}`;
@@ -23,10 +46,10 @@ const PourOver = {
           <div style="flex:1;min-width:0;">
             <div class="card-head">
               <div>
-                <div class="card-title">${star}${item.name_zh}</div>
-                <div class="card-sub">${item.name_en}</div>
+                <div class="card-title">${star}${name}</div>
+                <div class="card-sub">${subName}</div>
               </div>
-              <div class="roast roast-${roastCls}">${roastTxt}</div>
+              <div class="roast roast-${roastCls}">${roast}</div>
             </div>
             <div class="tags">${tags
               .map((t) => `<span class="tag">${t}</span>`)

@@ -69,9 +69,10 @@ details[open] .content-overlay {
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   border-left: 1px solid var(--border);
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.05);
+  padding-left: 10px;
 
   /* --- ⭐ 修正 1：修正價格顏色 --- */
   color: var(--text);

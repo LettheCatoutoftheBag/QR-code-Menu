@@ -1,23 +1,29 @@
 const CONFIG = {
   LANG_KEY: "orsir_lang",
   LANGS: ["zh", "en", "yue", "ko", "ja"],
-  DATA_SOURCES: {
-    pour_over: "data/pourover.json",
-    espresso: "data/espresso.json",
-    signature: "data/specials.json",
-    beverages: "data/beverages.json",
-    desserts: "data/desserts.json",
-  },
 
-  // --- 新增 ---
-  // 圖片的基礎路徑 (給 espresso.js, specials.js 等使用)
+  // --- ⭐ 修正：更新資料來源 ---
+  DATA_SOURCES: {
+    // (更新為 GSheet URL)
+    pour_over:
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vQnd0JWS45gYrWxcVQMkacAzikRmNOQHnglkpi4SE4bTjV-aloPPRF86k1Wi3__1XebbvQeruK6E8a4/pub?gid=0&single=true&output=csv",
+    espresso:
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vQnd0JWS45gYrWxcVQMkacAzikRmNOQHnglkpi4SE4bTjV-aloPPRF86k1Wi3__1XebbvQeruK6E8a4/pub?gid=1984863031&single=true&output=csv",
+    signature:
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vQnd0JWS45gYrWxcVQMkacAzikRmNOQHnglkpi4SE4bTjV-aloPPRF86k1Wi3__1XebbvQeruK6E8a4/pub?gid=1074560113&single=true&output=csv",
+    beverages:
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vQnd0JWS45gYrWxcVQMkacAzikRmNOQHnglkpi4SE4bTjV-aloPPRF86k1Wi3__1XebbvQeruK6E8a4/pub?gid=1895061740&single=true&output=csv",
+    desserts:
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vQnd0JWS45gYrWxcVQMkacAzikRmNOQHnglkpi4SE4bTjV-aloPPRF86k1Wi3__1XebbvQeruK6E8a4/pub?gid=1040598005&single=true&output=csv",
+  },
+  // --- 修正結束 ---
+
   IMG_BASE_PATH: "images/",
-  // -----------
 
   ROAST_MAP: {
-    Light: "淺",
-    Medium: "中",
-    "Medium-Dark": "中深",
-    Dark: "深",
+    Light: "淺焙",
+    Medium: "中焙",
+    "Medium-Dark": "中深中焙",
+    Dark: "深中焙",
   },
 };
