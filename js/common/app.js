@@ -128,7 +128,28 @@ const App = {
   async setCat(cat) {
     this.cat = cat;
 
-    // --- ⭐ 動態顏色地圖 ---
+    // ⭐ 修正 1：立即清空列表，避免殘影
+    Utils.$("#list").innerHTML = "";
+
+    // ⭐ 修正 2：重置子頁籤狀態和搜尋框
+    // 當切換主頁籤時，將手沖和飲品的子頁籤都重置為 "all"
+    this.sub = "all";
+    this.sub_bev = "all";
+
+    // 清空搜尋框
+    Utils.$("#search").value = "";
+
+    // 重置手沖子頁籤的 active class
+    Utils.$$(".sub-tabs .tab").forEach((t) =>
+      t.classList.toggle("active", t.dataset.sub === "all")
+    );
+
+    // 重置飲品子頁籤的 active class
+    Utils.$$("#subTabsBeverages .tab").forEach((t) =>
+      t.classList.toggle("active", t.dataset.sub === "all")
+    );
+
+    // --- 動態顏色地圖 ---
     const COLOR_MAP = {
       pour_over: ["#c7a77f", "#f7f1eb", "#fff"], // 琥珀色
       espresso: ["#503629", "#eae7e5", "#fff"], // 棕色
@@ -159,7 +180,14 @@ const App = {
 
     Utils.$("#app").classList.toggle("layout-single-column", isPourOver);
 
-    if (!this.data[cat]) await this.loadCat(cat);
+    // ⭐ 修正 3：顯示載入中提示
+    if (!this.data[cat]) {
+      Utils.$("#list").innerHTML = `
+        <p style="text-align:center;color:var(--text2);grid-column:1/-1;">
+          載入中... Loading...
+        </p>`;
+      await this.loadCat(cat);
+    }
 
     UI.updateText(this.lang, cat);
     this.render();
@@ -205,6 +233,7 @@ const App = {
     };
 
     let items = this.data[this.cat] || [];
+    // ⭐ 修正：is_sold_out 已經是布林值
     items = items.filter((it) => it.is_sold_out !== true);
 
     if (this.cat === "pour_over" && this.sub !== "all") {
@@ -214,6 +243,7 @@ const App = {
     }
 
     if (this.cat === "beverages" && this.sub_bev !== "all") {
+      // ⭐ 修正：caffeine_free 已經是布林值
       items = items.filter((it) => it.caffeine_free === true);
     }
 
