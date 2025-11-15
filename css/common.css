@@ -157,7 +157,7 @@ header button {
   box-shadow: var(--shadow);
   transition: all 0.2s;
   overflow: hidden;
-  position: relative;
+  position: relative; /* ⭐ 必須加這個，讓 absolute 的價格正確定位 */
 }
 .card:hover {
   transform: translateY(-2px);
@@ -232,6 +232,11 @@ header button {
   border-radius: 999px;
   background: #f7f9f3;
   color: var(--text2);
+  /* ⭐ 修正 4：防止標籤文字過長導致 RWD 問題 */
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .actions {
@@ -254,34 +259,55 @@ details[open] .chev {
   padding: 0 1rem 1rem;
   color: var(--text2);
 }
-/* 按下箭頭後會出現下方產區等資訊
-details[open] .content {
-  display: block;
-}*/
+/* ⭐ 移除 details[open] .content，不需要展開詳細資料 */
 .content strong {
   color: var(--text);
 }
 
+/* ⭐ 修正 5：冰熱價格樣式 */
 .price-right {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   display: flex;
+  flex-direction: column; /* 改為垂直排列 */
   align-items: center;
   justify-content: center;
   background: var(--card);
   padding: 0 1.5rem;
   font-weight: 700;
-  font-size: 1.75rem;
+  font-size: 1.5rem; /* 稍微縮小字體 */
   border-left: 1px solid var(--border);
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.08);
   transform: translateX(100%);
   transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   pointer-events: none;
+  gap: 0.25rem; /* 冰熱之間的間距 */
 }
-details[open] .price-right {
+
+.price-ice,
+.price-hot {
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+.price-ice {
+  color: #00bcd4; /* ⭐ 水藍色 */
+}
+
+.price-hot {
+  color: #d32f2f; /* ⭐ 紅色 */
+}
+
+/* ⭐ 所有卡片：使用 .open class 觸發價格滑入 */
+.card.open .price-right {
   transform: translateX(0);
+}
+
+/* ⭐ 箭頭旋轉 */
+.card.open .chev {
+  transform: rotate(90deg);
 }
 
 #langGate {
@@ -345,6 +371,11 @@ footer {
   .main-tabs .tab span:last-child {
     font-size: 0.75rem;
   }
+  /* ⭐ 修正 4：手機版標籤更小 */
+  .tag {
+    font-size: 0.75rem;
+    padding: 0.1rem 0.5rem;
+  }
 }
 @media (min-width: 768px) {
   #list {
@@ -358,9 +389,7 @@ footer {
   }
 }
 
-/* -------------------------------
- * Image Modal (共用元件)
- * ------------------------------- */
+/* Image Modal */
 .image-modal-container {
   position: fixed;
   inset: 0;
@@ -375,7 +404,6 @@ footer {
   transition: opacity 0.2s;
 }
 
-/* 用 .hidden 控制顯示/隱藏，避免 CSS 權重問題 */
 .image-modal-container.hidden {
   opacity: 0;
   pointer-events: none;
@@ -399,31 +427,29 @@ footer {
   cursor: pointer;
 }
 
-/* -------------------------------
- * 修正：修正 Hover 顏色 (靜態)
- * ------------------------------- */
+/* 修正 Hover 顏色 */
 .main-tabs .tab[data-cat="pour_over"]:hover:not(.disabled) {
-  background: #c7a77f; /* 琥珀色 */
+  background: #c7a77f;
   border-color: #c7a77f;
   color: #fff;
 }
 .main-tabs .tab[data-cat="espresso"]:hover:not(.disabled) {
-  background: #503629; /* 棕色 */
+  background: #503629;
   border-color: #503629;
   color: #fff;
 }
 .main-tabs .tab[data-cat="signature"]:hover:not(.disabled) {
-  background: #d90429; /* 亮紅色 */
+  background: #d90429;
   border-color: #d90429;
   color: #fff;
 }
 .main-tabs .tab[data-cat="beverages"]:hover:not(.disabled) {
-  background: #0077b6; /* 藍色 */
+  background: #0077b6;
   border-color: #0077b6;
   color: #fff;
 }
 .main-tabs .tab[data-cat="desserts"]:hover:not(.disabled) {
-  background: #ffc629; /* 黃色 */
+  background: #ffc629;
   border-color: #ffc629;
-  color: #3d2f27; /* 黃色配深色文字 */
+  color: #3d2f27;
 }

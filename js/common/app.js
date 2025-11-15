@@ -71,22 +71,11 @@ const App = {
 
     // 使用事件委派監聽 #list
     Utils.$("#list").addEventListener("click", (e) => {
-      // 優先權 1A：點擊點心圖片
-      const imgPreview = e.target.closest(".card-image-preview");
-      if (imgPreview) {
-        e.preventDefault();
-        const imgSrc = imgPreview.dataset.imgSrc;
-        if (imgSrc) {
-          modalImg.src = imgSrc;
-          modal.classList.remove("hidden");
-        }
-        return;
-      }
-
-      // 優先權 1B：點擊放大鏡
+      // 優先權 1：點擊放大鏡（所有類別通用）
       const zoomBtn = e.target.closest(".zoom-icon");
       if (zoomBtn) {
         e.preventDefault();
+        e.stopPropagation();
         const imgSrc = zoomBtn.dataset.imgSrc;
         if (imgSrc) {
           modalImg.src = imgSrc;
@@ -95,15 +84,12 @@ const App = {
         return;
       }
 
-      // 優先權 2：點擊 Summary（手沖卡片用原生行為展開詳細資料）
-      const summary = e.target.closest("details > summary");
-      if (summary) {
-        const detailsCard = summary.closest("details");
-        if (!detailsCard) return;
-
-        // 手沖卡片：直接用瀏覽器原生行為
-        // 其他卡片：因為都是 V1 (不展開)，什麼都不做
-        // 讓瀏覽器自己處理 open 屬性即可
+      // 優先權 2：點擊卡片（所有類別都切換 open class 顯示價格）
+      // 只要點擊 .card-clickable 內的任何地方都可以
+      const card = e.target.closest(".card-clickable");
+      if (card) {
+        card.classList.toggle("open");
+        return;
       }
     });
 
