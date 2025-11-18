@@ -58,7 +58,7 @@ const Beverages = {
         priceContent += `<div class="price-ice">🧊 $${item.price_ice}</div>`;
       }
       if (hasHot) {
-        priceContent += `<div class="price-hot">🍵 $${item.price_hot}</div>`;
+        priceContent += `<div class="price-hot">♨️ $${item.price_hot}</div>`;
       }
       priceHtml = `<div class="price-right">${priceContent}</div>`;
     } else if (hasPrice) {
