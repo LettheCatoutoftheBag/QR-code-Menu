@@ -37,6 +37,14 @@ const Desserts = {
 
     const imagePath = (CONFIG.IMG_BASE_PATH || "images/") + item.image_name;
     const hasImage = item.image_name && item.image_name.trim();
+
+    // ⭐ 圖片預覽區塊：有圖才顯示
+    const imagePreviewHTML = hasImage
+      ? `<div class="card-image-preview">
+          <img src="${imagePath}" alt="${name}">
+        </div>`
+      : "";
+
     const zoomIconHTML = hasImage
       ? `<span class="zoom-icon" data-img-src="${imagePath}">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -61,9 +69,7 @@ const Desserts = {
             
             <div class="card-dessert-top">
               
-              <div class="card-image-preview">
-                <img src="${imagePath}" alt="${name}">
-              </div>
+              ${imagePreviewHTML}
               
               <div class="card-content-dessert">
                 <div class="card-head">
