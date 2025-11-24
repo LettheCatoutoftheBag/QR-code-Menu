@@ -16,9 +16,13 @@ const UI = {
     Utils.$("#s3").textContent = t.subs.competition;
     Utils.$("#s4").textContent = t.subs.geisha;
     Utils.$("#s5").textContent = t.subs.limited;
+    Utils.$("#t6").textContent = t.tabs.selected_exp || "特選套組";
 
     Utils.$("#b1").textContent = t.subs.b1;
     Utils.$("#b2").textContent = t.subs.b2;
+    Utils.$("#e1").textContent = t.subs.choco || "巧克力體驗";
+    Utils.$("#e2").textContent = t.subs.geisha_exp || "Geisha升級體驗";
+    Utils.$("#e3").textContent = t.subs.friends || "呼朋引伴";
   },
 
   showEmpty(lang) {

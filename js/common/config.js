@@ -15,6 +15,8 @@ const CONFIG = {
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vQnd0JWS45gYrWxcVQMkacAzikRmNOQHnglkpi4SE4bTjV-aloPPRF86k1Wi3__1XebbvQeruK6E8a4/pub?gid=1895061740&single=true&output=csv",
     desserts:
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vQnd0JWS45gYrWxcVQMkacAzikRmNOQHnglkpi4SE4bTjV-aloPPRF86k1Wi3__1XebbvQeruK6E8a4/pub?gid=1040598005&single=true&output=csv",
+    selected_exp:
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vQnd0JWS45gYrWxcVQMkacAzikRmNOQHnglkpi4SE4bTjV-aloPPRF86k1Wi3__1XebbvQeruK6E8a4/pub?gid=1118953982&single=true&output=csv",
   },
   // --- 修正結束 ---
 

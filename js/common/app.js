@@ -3,6 +3,7 @@ const App = {
   cat: "pour_over",
   sub: "all",
   sub_bev: "all",
+  sub_exp: "choco",
   data: {},
 
   async init() {
@@ -58,6 +59,13 @@ const App = {
     Utils.$$("#subTabsBeverages .tab").forEach((t) =>
       t.addEventListener("click", () => {
         this.setSubBev(t.dataset.sub);
+      })
+    );
+
+    // 特選套組篩選
+    Utils.$$("#subTabsExp .tab").forEach((t) =>
+      t.addEventListener("click", () => {
+        this.setSubExp(t.dataset.subExp);
       })
     );
 
@@ -135,6 +143,11 @@ const App = {
       t.classList.toggle("active", t.dataset.sub === "all")
     );
 
+    // 重置特選套組子頁籤的 active class
+    Utils.$$("#subTabsExp .tab").forEach((t) =>
+      t.classList.toggle("active", t.dataset.subExp === "choco")
+    );
+
     // --- 動態顏色地圖 ---
     const COLOR_MAP = {
       pour_over: ["#c7a77f", "#f7f1eb", "#fff"], // 琥珀色
@@ -142,6 +155,7 @@ const App = {
       signature: ["#d90429", "#fde6ea", "#fff"], // 亮紅色
       beverages: ["#0077b6", "#e6f2f8", "#fff"], // 藍色
       desserts: ["#ffc629", "#fff9e9", "#3d2f27"], // 黃色
+      selected_exp: ["#9b59b6", "#f4ecf7", "#fff"], // 紫色
     };
 
     const colors = COLOR_MAP[cat] || ["#85a817", "#f3f6ec", "#fff"];
@@ -159,9 +173,11 @@ const App = {
     // 顯示/隱藏次標籤
     const isPourOver = cat === "pour_over";
     const isBeverages = cat === "beverages";
+    const isSelectedExp = cat === "selected_exp";
 
     Utils.$("#subTabs").classList.toggle("hidden", !isPourOver);
     Utils.$("#subTabsBeverages").classList.toggle("hidden", !isBeverages);
+    Utils.$("#subTabsExp").classList.toggle("hidden", !isSelectedExp);
     Utils.$(".search").classList.toggle("hidden", !isPourOver);
 
     Utils.$("#app").classList.toggle("layout-single-column", isPourOver);
@@ -195,6 +211,14 @@ const App = {
     this.render();
   },
 
+  setSubExp(subExp) {
+    this.sub_exp = subExp;
+    Utils.$$("#subTabsExp .tab").forEach((t) =>
+      t.classList.toggle("active", t.dataset.subExp === subExp)
+    );
+    this.render();
+  },
+
   async loadCat(cat) {
     const src = CONFIG.DATA_SOURCES[cat];
 
@@ -213,9 +237,10 @@ const App = {
     const RENDERERS = {
       pour_over: PourOver,
       espresso: Espresso,
-      signature: Signature, // ⭐ 修正：Specials -> Signature
+      signature: Signature,
       beverages: Beverages,
       desserts: Desserts,
+      selected_exp: SelectedExp,
     };
 
     let items = this.data[this.cat] || [];
@@ -231,6 +256,12 @@ const App = {
     if (this.cat === "beverages" && this.sub_bev !== "all") {
       // ⭐ 修正：caffeine_free 已經是布林值
       items = items.filter((it) => it.caffeine_free === true);
+    }
+
+    if (this.cat === "selected_exp" && this.sub_exp !== "choco") {
+      items = items.filter(
+        (it) => (it.category || "").toLowerCase() === this.sub_exp
+      );
     }
 
     const q = (Utils.$("#search").value || "").trim().toLowerCase();

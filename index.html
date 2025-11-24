@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/product-card.css" />
     <link rel="stylesheet" href="css/desserts.css" />
+    <link rel="stylesheet" href="css/selectedexp.css" />
   </head>
   <body>
     <section id="langGate" class="hidden">
@@ -49,6 +50,9 @@
         <button class="tab" data-cat="desserts">
           <span>🍰</span><span id="t5"></span>
         </button>
+        <button class="tab" data-cat="selected_exp">
+          <span>🎁</span><span id="t6"></span>
+        </button>
       </nav>
 
       <nav id="subTabs" class="sub-tabs">
@@ -62,6 +66,12 @@
       <nav id="subTabsBeverages" class="sub-tabs hidden">
         <button class="tab active" data-sub="all" id="b1">全部</button>
         <button class="tab" data-sub="caffeine_free" id="b2">無咖啡因</button>
+      </nav>
+
+      <nav id="subTabsExp" class="sub-tabs hidden">
+        <button class="tab active" data-sub-exp="choco" id="e1"></button>
+        <button class="tab" data-sub-exp="geisha_exp" id="e2"></button>
+        <button class="tab" data-sub-exp="friends" id="e3"></button>
       </nav>
 
       <div class="search">
@@ -84,6 +94,7 @@
     <script src="js/modules/signature.js"></script>
     <script src="js/modules/beverages.js"></script>
     <script src="js/modules/desserts.js"></script>
+    <script src="js/modules/selectedexp.js"></script>
     <script src="js/common/app.js"></script>
   </body>
 </html>

@@ -9,6 +9,7 @@ const I18N = {
       signature: "· 主廚特調系列\n· 結合在地食材與咖啡\n· 每季推出限定風味",
       beverages: "· 精選茶飲與特調飲品\n· 無咖啡因選項\n· 適合各年齡層",
       desserts: "· 當日限量供應\n· 職人手工製作\n· 完美搭配咖啡",
+      selected_exp: "· 精選體驗套組\n· 一次品嚐多種風味\n· 超值優惠組合",
     },
     tabs: {
       pour_over: "手沖豆單",
@@ -16,6 +17,7 @@ const I18N = {
       signature: "特調系列",
       beverages: "其他飲品",
       desserts: "當日點心",
+      selected_exp: "特選體驗",
     },
     subs: {
       all: "全部",
@@ -25,6 +27,9 @@ const I18N = {
       limited: "限量版",
       b1: "全部",
       b2: "無咖啡因",
+      choco: "巧克力體驗",
+      geisha_exp: "Geisha升級體驗",
+      friends: "呼朋引伴",
     },
     search: "搜尋：品名、產區、風味...",
     empty: "沒有符合的品項",
@@ -42,6 +47,8 @@ const I18N = {
         "· Premium tea & specialty drinks\n· Caffeine-free options\n· Suitable for all ages",
       desserts:
         "· Daily limited supply\n· Handcrafted by artisans\n· Perfect coffee pairing",
+      selected_exp:
+        "· Selected Experience Sets\n· Taste multiple flavors at once\n· Great value combos",
     },
     tabs: {
       pour_over: "Pour-Over",
@@ -49,6 +56,7 @@ const I18N = {
       signature: "Signature",
       beverages: "Beverages",
       desserts: "Desserts",
+      selected_exp: "Experience",
     },
     subs: {
       all: "All",
@@ -58,6 +66,9 @@ const I18N = {
       limited: "Limited",
       b1: "All",
       b2: "Caffeine Free",
+      choco: "Chocolate Experience",
+      geisha_exp: "Geisha Upgrade",
+      friends: "Share with Friends",
     },
     search: "Search: name, origin, flavor...",
     empty: "No items found",
@@ -72,6 +83,7 @@ const I18N = {
       signature: "· 主廚特調系列\n· 結合本地食材與咖啡\n· 每季推出限定風味",
       beverages: "· 精選茶飲與特調飲品\n· 無咖啡因選項\n· 適合各年齡層",
       desserts: "· 當日限量供應\n· 職人手工製作\n· 完美配搭咖啡",
+      selected_exp: "· 精選體驗套組\n· 一次品嚐多種風味\n· 超值優惠組合",
     },
     tabs: {
       pour_over: "手沖豆單",
@@ -79,6 +91,7 @@ const I18N = {
       signature: "特調系列",
       beverages: "其他飲品",
       desserts: "當日點心",
+      selected_exp: "特選套組",
     },
     subs: {
       all: "全部",
@@ -88,6 +101,9 @@ const I18N = {
       limited: "限量版",
       b1: "全部",
       b2: "無咖啡因",
+      choco: "朱古力體驗",
+      geisha_exp: "Geisha升級體驗",
+      friends: "呼朋引伴",
     },
     search: "搜尋：品名、產區、風味...",
     empty: "冇搵到相符嘅品項",
@@ -104,6 +120,8 @@ const I18N = {
       beverages:
         "· 프리미엄 차와 특별 음료\n· 디카페인 옵션\n· 모든 연령층 적합",
       desserts: "· 매일 한정 공급\n· 장인의 수제작\n· 커피와 완벽한 페어링",
+      selected_exp:
+        "· 엄선된 체험 세트\n· 다양한 맛을 한 번에\n· 가성비 좋은 세트",
     },
     tabs: {
       pour_over: "푸어오버",
@@ -111,6 +129,7 @@ const I18N = {
       signature: "시그니처",
       beverages: "음료",
       desserts: "디저트",
+      selected_exp: "체험 세트",
     },
     subs: {
       all: "전체",
@@ -120,6 +139,9 @@ const I18N = {
       limited: "한정판",
       b1: "전체",
       b2: "디카페인",
+      choco: "초콜릿 체험",
+      geisha_exp: "게이샤 업그레이드",
+      friends: "친구와 함께",
     },
     search: "검색: 이름, 원산지, 풍미...",
     empty: "항목을 찾을 수 없습니다",
@@ -136,6 +158,7 @@ const I18N = {
       beverages:
         "· プレミアムティーと特製ドリンク\n· カフェインフリーオプション\n· 全年齢対応",
       desserts: "· 毎日限定供給\n· 職人の手作り\n· コーヒーと完璧なペアリング",
+      selected_exp: "· 厳選体験セット\n· 様々な味を一度に\n· お得なセット",
     },
     tabs: {
       pour_over: "ハンドドリップ",
@@ -143,6 +166,7 @@ const I18N = {
       signature: "シグネチャー",
       beverages: "飲み物",
       desserts: "デザート",
+      selected_exp: "体験セット",
     },
     subs: {
       all: "すべて",
@@ -152,6 +176,9 @@ const I18N = {
       limited: "限定版",
       b1: "すべて",
       b2: "カフェインレス",
+      choco: "チョコレート体験",
+      geisha_exp: "ゲイシャアップグレード",
+      friends: "友達と一緒に",
     },
     search: "検索: 名前、産地、風味...",
     empty: "アイテムが見つかりません",

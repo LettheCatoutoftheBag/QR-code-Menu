@@ -1,0 +1,189 @@
+/* ========================================
+   特選套組卡片樣式
+   ======================================== */
+
+/* 卡片容器 */
+.exp-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  height: 100%;
+}
+
+.exp-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+/* 圖片區域 */
+.exp-image-section {
+  position: relative;
+  flex: 0 0 40%;
+  min-height: 280px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+}
+
+.exp-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.exp-card:hover .exp-image {
+  transform: scale(1.05);
+}
+
+/* 人氣推薦徽章 */
+.featured-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* 內容區域 */
+.exp-content-section {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* 標題 */
+.exp-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text1, #2c3e50);
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* 套組規格 */
+.exp-sets {
+  display: inline-block;
+  background: var(--brand-active-tint, #f3f6ec);
+  color: var(--brand-active, #85a817);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+/* 描述 */
+.exp-description {
+  color: var(--text2, #666);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 套組內容 */
+.exp-items {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 16px;
+  flex: 1;
+}
+
+.exp-items-title {
+  font-weight: 600;
+  color: var(--text1, #2c3e50);
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.exp-items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.exp-items-list li {
+  color: var(--text2, #666);
+  font-size: 0.95rem;
+  padding-left: 4px;
+  line-height: 1.5;
+}
+
+/* 價格 */
+.exp-price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--brand-active, #85a817);
+  text-align: right;
+  margin-top: auto;
+}
+
+/* ========================================
+   響應式設計（手機版）
+   ======================================== */
+
+@media (max-width: 768px) {
+  .exp-card {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .exp-image-section {
+    flex: 0 0 auto;
+    min-height: 200px;
+    max-height: 250px;
+  }
+
+  .exp-content-section {
+    padding: 20px;
+  }
+
+  .exp-title {
+    font-size: 1.3rem;
+  }
+
+  .exp-price {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .featured-badge {
+    top: 10px;
+    right: 10px;
+    font-size: 0.8rem;
+    padding: 5px 12px;
+  }
+}
+
+/* ========================================
+   無圖片時的樣式
+   ======================================== */
+
+.exp-card:not(:has(.exp-image-section)) .exp-content-section {
+  max-width: 100%;
+}
