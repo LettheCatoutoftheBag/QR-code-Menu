@@ -129,6 +129,7 @@ const App = {
     // 當切換主頁籤時，將手沖和飲品的子頁籤都重置為 "all"
     this.sub = "all";
     this.sub_bev = "all";
+    this.sub_exp = "choco";
 
     // 清空搜尋框
     Utils.$("#search").value = "";
@@ -220,12 +221,21 @@ const App = {
   },
 
   async loadCat(cat) {
+    // ⭐ 顯示 Loading
+    const loading = Utils.$("#loadingOverlay");
+    if (loading) loading.classList.remove("hidden");
+
     const src = CONFIG.DATA_SOURCES[cat];
 
-    if (src.startsWith("http")) {
-      this.data[cat] = await Utils.loadGSheet(src);
-    } else {
-      this.data[cat] = await Utils.loadJSON(src);
+    try {
+      if (src.startsWith("http")) {
+        this.data[cat] = await Utils.loadGSheet(src);
+      } else {
+        this.data[cat] = await Utils.loadJSON(src);
+      }
+    } finally {
+      // ⭐ 隱藏 Loading
+      if (loading) loading.classList.add("hidden");
     }
   },
 
@@ -258,7 +268,7 @@ const App = {
       items = items.filter((it) => it.caffeine_free === true);
     }
 
-    if (this.cat === "selected_exp" && this.sub_exp !== "choco") {
+    if (this.cat === "selected_exp" && this.sub_exp !== "all") {
       items = items.filter(
         (it) => (it.category || "").toLowerCase() === this.sub_exp
       );

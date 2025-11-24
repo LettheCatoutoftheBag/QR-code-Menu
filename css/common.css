@@ -57,7 +57,7 @@ header button {
 
 .main-tabs {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 0.5rem;
   margin-bottom: 1rem;
   padding: 1rem;
@@ -365,6 +365,9 @@ footer {
 }
 
 @media (max-width: 639px) {
+  .main-tabs {
+    grid-template-columns: repeat(3, 1fr);
+  }
   .main-tabs .tab span:first-child {
     font-size: 1.25rem;
   }

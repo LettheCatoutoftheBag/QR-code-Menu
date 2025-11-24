@@ -3,15 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>歐舍咖啡線上菜單</title>
+    <title>Orsir Coffee Menu</title>
     <meta name="theme-color" content="#85a817" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/product-card.css" />
     <link rel="stylesheet" href="css/desserts.css" />
     <link rel="stylesheet" href="css/selectedexp.css" />
+    <link rel="stylesheet" href="css/loading.css" />
   </head>
   <body>
+    <!-- ⭐ Loading 動畫 -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+      <div class="mascot-parade">
+        <img
+          src="images/loading/mascot-3.jpg"
+          alt="吉祥物3"
+          class="mascot-character"
+        />
+
+        <img
+          src="images/loading/mascot-2.jpg"
+          alt="吉祥物2"
+          class="mascot-character"
+        />
+        <img
+          src="images/loading/mascot-1.jpg"
+          alt="吉祥物1"
+          class="mascot-character"
+        />
+      </div>
+      <div class="loading-text">載入中<span class="loading-dots"></span></div>
+      <div class="loading-subtext">請稍候，正在準備美味咖啡...</div>
+      <div class="loading-progress">
+        <div class="loading-progress-bar"></div>
+      </div>
+    </div>
+
     <section id="langGate" class="hidden">
       <div class="gate-box">
         <h1>選擇語言 / Choose Language</h1>
