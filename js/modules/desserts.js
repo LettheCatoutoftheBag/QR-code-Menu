@@ -14,7 +14,7 @@ const Desserts = {
       description = item.description_en;
     } else {
       name = item[`name_${lang}`] || item.name_en;
-      subName = item.name_en;
+      subName = item.name_zh;
       tags = item[`tags_${lang}`] || item.tags_en;
       description = item[`description_${lang}`] || item.description_en;
     }
@@ -38,7 +38,6 @@ const Desserts = {
     const imagePath = (CONFIG.IMG_BASE_PATH || "images/") + item.image_name;
     const hasImage = item.image_name && item.image_name.trim();
 
-    // ⭐ 圖片預覽區塊：有圖才顯示
     const imagePreviewHTML = hasImage
       ? `<div class="card-image-preview">
           <img src="${imagePath}" alt="${name}">
@@ -54,7 +53,6 @@ const Desserts = {
         </span>`
       : "";
 
-    // ⭐ 價格只抓取 price 欄位
     let priceHtml = "";
     const hasPrice = item.price && item.price.trim();
     if (hasPrice) {

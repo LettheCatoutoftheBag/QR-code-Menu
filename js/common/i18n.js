@@ -33,6 +33,12 @@ const I18N = {
     },
     search: "搜尋：品名、產區、風味...",
     empty: "沒有符合的品項",
+    roast: {
+      Light: "淺焙",
+      Medium: "中焙",
+      "Medium-Dark": "中深焙",
+      Dark: "深焙",
+    },
   },
   en: {
     title: "Orsir Coffee Menu",
@@ -72,6 +78,12 @@ const I18N = {
     },
     search: "Search: name, origin, flavor...",
     empty: "No items found",
+    roast: {
+      Light: "Light Roast",
+      Medium: "Medium Roast",
+      "Medium-Dark": "Medium Plus Roast",
+      Dark: "Dark Roast",
+    },
   },
   yue: {
     title: "歐舍咖啡線上菜單",
@@ -107,6 +119,12 @@ const I18N = {
     },
     search: "搜尋：品名、產區、風味...",
     empty: "冇搵到相符嘅品項",
+    roast: {
+      Light: "淺焙",
+      Medium: "中焙",
+      "Medium-Dark": "中深焙",
+      Dark: "深焙",
+    },
   },
   ko: {
     title: "오셔 커피 메뉴",
@@ -145,6 +163,12 @@ const I18N = {
     },
     search: "검색: 이름, 원산지, 풍미...",
     empty: "항목을 찾을 수 없습니다",
+    roast: {
+      Light: "Light Roast",
+      Medium: "Medium Roast",
+      "Medium-Dark": "Medium Plus Roast",
+      Dark: "Dark Roast",
+    },
   },
   ja: {
     title: "オーシャーコーヒー",
@@ -182,5 +206,11 @@ const I18N = {
     },
     search: "検索: 名前、産地、風味...",
     empty: "アイテムが見つかりません",
+    roast: {
+      Light: "Light Roast",
+      Medium: "Medium Roast",
+      "Medium-Dark": "Medium Plus Roast",
+      Dark: "Dark Roast",
+    },
   },
 };

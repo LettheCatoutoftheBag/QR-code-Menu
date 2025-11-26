@@ -109,6 +109,26 @@ const App = {
         closeModal();
       }
     });
+
+    // ⭐ TOP 按鈕
+    const backToTop = Utils.$("#backToTop");
+
+    // 滾動時顯示/隱藏
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.remove("hidden");
+      } else {
+        backToTop.classList.add("hidden");
+      }
+    });
+
+    // 點擊返回頂部
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
   },
 
   setLang(lang) {
@@ -181,7 +201,10 @@ const App = {
     Utils.$("#subTabsExp").classList.toggle("hidden", !isSelectedExp);
     Utils.$(".search").classList.toggle("hidden", !isPourOver);
 
-    Utils.$("#app").classList.toggle("layout-single-column", isPourOver);
+    Utils.$("#app").classList.toggle(
+      "layout-single-column",
+      isPourOver || isSelectedExp
+    );
 
     // ⭐ 修正 3：顯示載入中提示
     if (!this.data[cat]) {
@@ -295,10 +318,193 @@ const App = {
       return;
     }
 
-    items.forEach((it) => {
-      const card = Renderer.render(it, this.lang);
-      if (card) list.appendChild(card);
+    // ⭐ 特選套組使用走馬燈
+    if (this.cat === "selected_exp") {
+      this.renderCarousel(items, Renderer);
+    } else {
+      items.forEach((it) => {
+        const card = Renderer.render(it, this.lang);
+        if (card) list.appendChild(card);
+      });
+    }
+  },
+
+  // ⭐ 走馬燈渲染邏輯
+  renderCarousel(items, Renderer) {
+    const list = Utils.$("#list");
+
+    // 建立走馬燈容器
+    const carousel = document.createElement("div");
+    carousel.className = "exp-carousel";
+    carousel.id = "expCarousel";
+
+    const track = document.createElement("div");
+    track.className = "exp-carousel-track";
+
+    // 渲染所有卡片
+    items.forEach((item, index) => {
+      const carouselItem = document.createElement("div");
+      carouselItem.className = "exp-carousel-item";
+      carouselItem.dataset.index = index;
+
+      const card = Renderer.render(item, this.lang);
+      if (card) {
+        carouselItem.appendChild(card);
+        track.appendChild(carouselItem);
+      }
     });
+
+    carousel.appendChild(track);
+
+    // 加入箭頭
+    carousel.innerHTML += `
+      <button class="exp-carousel-arrow exp-carousel-arrow-left">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+      <button class="exp-carousel-arrow exp-carousel-arrow-right">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+    `;
+
+    // 加入指示點
+    const dots = document.createElement("div");
+    dots.className = "exp-carousel-dots";
+    items.forEach((_, index) => {
+      const dot = document.createElement("div");
+      dot.className = "exp-carousel-dot" + (index === 0 ? " active" : "");
+      dot.dataset.index = index;
+      dots.appendChild(dot);
+    });
+    carousel.appendChild(dots);
+
+    list.appendChild(carousel);
+
+    // 初始化走馬燈
+    this.initCarousel(items.length);
+  },
+
+  // ⭐ 走馬燈控制邏輯
+  // ⭐ 走馬燈控制邏輯
+  initCarousel(totalItems) {
+    let currentIndex = 0;
+    let startX = 0;
+    let currentX = 0;
+    let isDragging = false;
+
+    const carousel = Utils.$("#expCarousel");
+    const track = Utils.$(".exp-carousel-track");
+    const leftArrow = Utils.$(".exp-carousel-arrow-left");
+    const rightArrow = Utils.$(".exp-carousel-arrow-right");
+    const dots = Utils.$$(".exp-carousel-dot");
+
+    const updateCarousel = () => {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      // 更新指示點
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentIndex);
+      });
+
+      // 更新箭頭狀態
+      leftArrow.classList.toggle("disabled", currentIndex === 0);
+      rightArrow.classList.toggle("disabled", currentIndex === totalItems - 1);
+    };
+
+    const goToPrev = () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
+    };
+
+    const goToNext = () => {
+      if (currentIndex < totalItems - 1) {
+        currentIndex++;
+        updateCarousel();
+      }
+    };
+
+    // ⭐ 滑動開始
+    const handleStart = (e) => {
+      isDragging = true;
+      startX = e.type.includes("mouse") ? e.pageX : e.touches[0].pageX;
+      track.style.transition = "none";
+    };
+
+    // ⭐ 滑動中
+    const handleMove = (e) => {
+      if (!isDragging) return;
+
+      e.preventDefault();
+      currentX = e.type.includes("mouse") ? e.pageX : e.touches[0].pageX;
+      const diff = currentX - startX;
+
+      // ⭐ 邊界限制：在第一張時不能繼續往右滑，最後一張時不能繼續往左滑
+      if (
+        (currentIndex === 0 && diff > 0) ||
+        (currentIndex === totalItems - 1 && diff < 0)
+      ) {
+        return; // 直接返回，不更新位置
+      }
+
+      const offset = -currentIndex * 100 + (diff / carousel.offsetWidth) * 100;
+      track.style.transform = `translateX(${offset}%)`;
+    };
+
+    // ⭐ 滑動結束
+    const handleEnd = () => {
+      if (!isDragging) return;
+
+      isDragging = false;
+      track.style.transition = "transform 0.4s ease-in-out";
+
+      const diff = currentX - startX;
+      const threshold = 50; // 滑動超過 50px 才切換
+
+      if (Math.abs(diff) > threshold) {
+        if (diff > 0) {
+          goToPrev();
+        } else {
+          goToNext();
+        }
+      } else {
+        updateCarousel(); // 回到原位
+      }
+
+      startX = 0;
+      currentX = 0;
+    };
+
+    // 左箭頭
+    leftArrow.addEventListener("click", goToPrev);
+
+    // 右箭頭
+    rightArrow.addEventListener("click", goToNext);
+
+    // 指示點
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        currentIndex = parseInt(dot.dataset.index);
+        updateCarousel();
+      });
+    });
+
+    // ⭐ 滑鼠事件
+    track.addEventListener("mousedown", handleStart);
+    document.addEventListener("mousemove", handleMove);
+    document.addEventListener("mouseup", handleEnd);
+
+    // ⭐ 觸控事件
+    track.addEventListener("touchstart", handleStart, { passive: false });
+    track.addEventListener("touchmove", handleMove, { passive: false });
+    track.addEventListener("touchend", handleEnd);
+
+    // 初始化
+    updateCarousel();
   },
 };
 

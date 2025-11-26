@@ -1,6 +1,7 @@
 const PourOver = {
   render(item, lang) {
     // 多語言支援
+    const id = item.id;
     let name, subName;
     if (lang === "zh") {
       name = item.name_zh;
@@ -14,12 +15,12 @@ const PourOver = {
     }
 
     const tags = (lang === "zh" ? item.tags_zh : item.tags_en) || [];
-    const roast = CONFIG.ROAST_MAP[item.roast] || item.roast;
+    const roastMap = I18N[lang]?.roast || I18N.en.roast;
+    const roast = roastMap[item.roast] || item.roast;
     const feat = item.is_featured === true;
     const star = feat ? '<span class="star">⭐</span>' : "";
     const roastCls = (item.roast || "").toLowerCase().replace("-", "");
 
-    // 價格（抓取 price 欄位）
     const priceHtml = item.price
       ? `<div class="price-right">$${item.price}</div>`
       : "";
@@ -33,15 +34,17 @@ const PourOver = {
           <div style="flex:1;min-width:0;">
             <div class="card-head">
               <div>
+                <div class="beansID">${id}</div>
                 <div class="card-title">${star}${name}</div>
                 <div class="card-sub">${subName}</div>
-              </div>
-              <div class="roast roast-${roastCls}">${roast}</div>
+              </div> 
             </div>
+            <div><span class="roast-tag roast-${roastCls}">${roast}</span></div>
             <div class="tags">${tags
               .map((t) => `<span class="tag">${t}</span>`)
               .join("")}</div>
           </div>
+          
           <div class="actions">
             <span class="chev">▶</span>
           </div>

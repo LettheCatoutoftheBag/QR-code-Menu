@@ -3,25 +3,34 @@ const SelectedExp = {
     const card = document.createElement("div");
     card.className = "exp-card";
 
-    // 取得多語系欄位
-    const name = Utils.pick(item, "name", lang);
-    const description = Utils.pick(item, "description", lang);
+    let name, subName, description, items;
 
-    // 套組內容（用 | 分隔）
-    const itemsList = (item.items || "").split("|").filter(Boolean);
+    if (lang === "zh") {
+      name = item.name_zh;
+      subName = item.name_en;
+      description = item.description_zh;
+      items = item.items_zh || item.items;
+    } else if (lang === "en") {
+      name = item.name_en;
+      subName = item.name_zh;
+      description = item.description_en;
+      items = item.items_en || item.items;
+    } else {
+      name = item[`name_${lang}`] || item.name_en;
+      subName = item.name_zh;
+      description = item[`description_${lang}`] || item.description_en;
+      items = item[`items_${lang}`] || item.items_en || item.items;
+    }
 
-    // 圖片
+    const itemsList = (items || "").split("|").filter(Boolean);
+
     const imgSrc = item.image_name
       ? `${CONFIG.IMG_BASE_PATH}${item.image_name}`
       : "";
 
-    // 人氣推薦徽章
-    const featuredBadge =
-      item.is_featured === "TRUE" || item.is_featured === true
-        ? '<div class="featured-badge">🔥 人氣推薦</div>'
-        : "";
+    const feat = item.is_featured === true;
+    const star = feat ? '<span class="star">⭐</span>' : "";
 
-    // 組合圖片區域
     let imageSection = "";
     if (imgSrc) {
       imageSection = `
@@ -32,10 +41,10 @@ const SelectedExp = {
       `;
     }
 
-    // 組合內容區域
     const contentSection = `
       <div class="exp-content-section">
-        <h3 class="exp-title">${name}</h3>
+        <h3 class="exp-title">${star}${name}</h3>
+        ${subName ? `<div class="exp-subtitle">${subName}</div>` : ""}
         ${item.exp_sets ? `<div class="exp-sets">${item.exp_sets}</div>` : ""}
         
         ${description ? `<p class="exp-description">${description}</p>` : ""}

@@ -15,7 +15,7 @@ const Beverages = {
       description = item.description_en;
     } else {
       name = item[`name_${lang}`] || item.name_en;
-      subName = item.name_en;
+      subName = item.name_zh;
       tags = item[`tags_${lang}`] || item.tags_en;
       description = item[`description_${lang}`] || item.description_en;
     }
@@ -23,7 +23,6 @@ const Beverages = {
     const feat = item.is_featured === true;
     const star = feat ? '<span class="star">⭐</span>' : "";
 
-    // ⭐ 改用 div
     const card = document.createElement("div");
     card.className = `card card-clickable ${feat ? "featured" : ""}`;
 
@@ -52,7 +51,6 @@ const Beverages = {
     const hasPrice = item.price && item.price.trim();
 
     if (hasHot || hasIce) {
-      // 新格式：冰熱分開
       let priceContent = "";
       if (hasIce) {
         priceContent += `<div class="price-ice">🧊 $${item.price_ice}</div>`;
@@ -62,7 +60,6 @@ const Beverages = {
       }
       priceHtml = `<div class="price-right">${priceContent}</div>`;
     } else if (hasPrice) {
-      // 舊格式：單一價格
       priceHtml = `<div class="price-right">$${item.price}</div>`;
     }
 

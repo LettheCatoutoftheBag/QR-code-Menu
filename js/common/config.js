@@ -21,11 +21,4 @@ const CONFIG = {
   // --- 修正結束 ---
 
   IMG_BASE_PATH: "images/",
-
-  ROAST_MAP: {
-    Light: "淺焙",
-    Medium: "中焙",
-    "Medium-Dark": "中深中焙",
-    Dark: "深中焙",
-  },
 };

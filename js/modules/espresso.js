@@ -13,7 +13,7 @@ const Espresso = {
       description = item.description_en;
     } else {
       name = item[`name_${lang}`] || item.name_en;
-      subName = item.name_en;
+      subName = item.name_zh;
       tags = item[`tags_${lang}`] || item.tags_en;
       description = item[`description_${lang}`] || item.description_en;
     }

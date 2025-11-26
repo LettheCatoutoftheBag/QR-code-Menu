@@ -10,19 +10,19 @@ const UI = {
     Utils.$("#t3").textContent = t.tabs.signature;
     Utils.$("#t4").textContent = t.tabs.beverages;
     Utils.$("#t5").textContent = t.tabs.desserts;
+    Utils.$("#t6").textContent = t.tabs.selected_exp;
 
     Utils.$("#s1").textContent = t.subs.all;
     Utils.$("#s2").textContent = t.subs.estate;
     Utils.$("#s3").textContent = t.subs.competition;
     Utils.$("#s4").textContent = t.subs.geisha;
     Utils.$("#s5").textContent = t.subs.limited;
-    Utils.$("#t6").textContent = t.tabs.selected_exp || "特選套組";
 
     Utils.$("#b1").textContent = t.subs.b1;
     Utils.$("#b2").textContent = t.subs.b2;
-    Utils.$("#e1").textContent = t.subs.choco || "巧克力體驗";
-    Utils.$("#e2").textContent = t.subs.geisha_exp || "Geisha升級體驗";
-    Utils.$("#e3").textContent = t.subs.friends || "呼朋引伴";
+    Utils.$("#e1").textContent = t.subs.choco;
+    Utils.$("#e2").textContent = t.subs.geisha_exp;
+    Utils.$("#e3").textContent = t.subs.friends;
   },
 
   showEmpty(lang) {

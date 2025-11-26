@@ -192,12 +192,18 @@ header button {
   font-size: 0.95rem;
   margin-top: 0.25rem;
 }
+
+.beansID {
+  font-size: 0.75rem;
+  color: var(--text2);
+  margin-bottom: 0.25rem;
+}
 .star {
   color: var(--gold);
   margin-right: 0.5rem;
 }
 
-.roast {
+.roast-tag {
   padding: 0.2rem 0.75rem;
   font-size: 0.85rem;
   font-weight: 500;
@@ -455,4 +461,49 @@ footer {
   background: #ffc629;
   border-color: #ffc629;
   color: #3d2f27;
+}
+
+/* ========================================
+   返回頂部按鈕
+   ======================================== */
+
+.back-to-top {
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+  width: 5rem;
+  height: 5rem;
+  background: var(--brand-active, #85a817);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.back-to-top:hover {
+  background: var(--brand-active);
+  transform: translateY(-8px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: 5%;
+    right: 5%;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.1rem;
+  }
 }
