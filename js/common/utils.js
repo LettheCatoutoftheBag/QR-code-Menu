@@ -18,7 +18,7 @@ const Utils = {
     }
   },
 
-  // ⭐ --- 修正後的 GSheet 讀取器（完全重寫）---
+  // --- GSheet 讀取器 ---
   loadGSheet: async (url) => {
     try {
       const res = await fetch(url);

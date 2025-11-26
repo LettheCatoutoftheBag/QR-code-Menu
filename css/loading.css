@@ -1,7 +1,3 @@
-/* ========================================
-   Loading 動畫 - 吉祥物郊遊版
-   ======================================== */
-
 .loading-overlay {
   position: fixed;
   inset: 0;
@@ -28,7 +24,6 @@
   }
 }
 
-/* 吉祥物郊遊容器 */
 .mascot-parade {
   display: flex;
   align-items: flex-end;
@@ -46,7 +41,6 @@
   }
 }
 
-/* 個別吉祥物 */
 .mascot-character {
   width: 100px;
   height: 100px;
@@ -76,7 +70,6 @@
   }
 }
 
-/* Loading 文字 */
 .loading-text {
   font-size: 1.5rem;
   font-weight: 700;
@@ -91,7 +84,6 @@
   opacity: 0.8;
 }
 
-/* 點點動畫 */
 .loading-dots::after {
   content: "";
   animation: dots 1.5s steps(4, end) infinite;
@@ -114,7 +106,6 @@
   }
 }
 
-/* 進度條（選用） */
 .loading-progress {
   width: 200px;
   height: 4px;

@@ -1,25 +1,16 @@
-/* -------------------------------
- * Dessert Card Styles (Phase 5)
- * ------------------------------- */
-
-/* ⭐ 修正：
- * 移除 .card-dessert > summary { display: flex; ... } 規則
- * 改為只針對 "上排" 進行 flex 排版
- */
 .card-dessert-top {
   display: flex;
-  align-items: flex-start; /* 頂部對齊 */
+  align-items: flex-start;
   gap: 1rem;
 }
 
-/* 1. 左側圖片區塊 (樣式不變) */
 .card-image-preview {
-  flex-basis: 90px; /* 固定寬度 */
+  flex-basis: 90px;
   flex-shrink: 0;
-  height: 90px; /* 固定高度 */
+  height: 90px;
   border-radius: calc(var(--radius) * 0.75);
   overflow: hidden;
-  cursor: pointer; /* 顯示可點擊 */
+  cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .card-image-preview:hover {
@@ -32,26 +23,11 @@
   object-fit: cover;
 }
 
-/* 2. 中間內容區塊 (樣式不變) */
 .card-content-dessert {
-  flex: 1; /* 佔滿剩餘空間 */
+  flex: 1;
 }
 
-/* 3. 右側箭頭區塊 (樣式不變) */
-/* (common.css 中的 .actions 樣式會自動套用) */
-
-/* -------------------------------
- * 修正：點心標籤布局
- * ------------------------------- */
-
-/* ⭐ 修正：
- * 標籤現在位於 summary 內部，
- * 且位於 .card-dessert-top 的 "下方"
- */
 .tags-dessert {
-  /* (基礎樣式 display:flex, wrap, gap 繼承自 common.css) */
-
-  /* 將標籤區塊往內縮，並與上排 (topRow) 分開 */
-  padding: 0 1rem; /* 上下0, 左右1rem */
-  margin-top: 0.75rem; /* 與上排的間距 */
+  padding: 0 1rem;
+  margin-top: 0.75rem;
 }

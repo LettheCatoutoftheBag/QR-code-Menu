@@ -1,16 +1,11 @@
-/* -------------------------------
- * Espresso Card Styles (Phase 2)
- * ------------------------------- */
-
-/* 放大鏡 icon 樣式 */
 .zoom-icon {
   color: var(--text2);
   font-size: 1.5rem;
   cursor: pointer;
   transition: color 0.2s;
-  width: 24px; /* SVG 寬度 */
-  height: 24px; /* SVG 高度 */
-  margin-top: 0.25rem; /* 讓 icon 和箭頭有點間距 */
+  width: 24px;
+  height: 24px;
+  margin-top: 0.25rem;
 }
 .zoom-icon:hover {
   color: var(--brand);
@@ -19,15 +14,13 @@
   display: block;
 }
 
-/* * 80/20 覆蓋層 (取代 .price-right) 
- * 它的樣式和 .price-right 非常類似
- */
+/* * 80/20 覆蓋層 (取代 .price-right) */
 .content-overlay {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  left: 0; /* 佔滿整張卡 */
+  left: 0;
   display: flex;
   background: linear-gradient(
     to right,
@@ -54,12 +47,11 @@ details[open] .content-overlay {
   color: var(--text2);
   overflow-y: auto; /* 如果說明太長，允許滾動 */
 
-  /* --- 修正 3b：藝術感字體 --- */
+  /* --- 藝術感字體 --- */
   font-family: "Noto Serif TC", serif;
   font-size: 1.05rem; /* 放大字體 */
   font-style: italic; /* 增加藝術感 */
   line-height: 1.7; /* 增加行高 */
-  /* --- 結束 --- */
 }
 
 /* 20% 價格區塊 */
@@ -73,13 +65,9 @@ details[open] .content-overlay {
   border-left: 1px solid var(--border);
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.05);
   padding-left: 10px;
-
-  /* --- ⭐ 修正 1：修正價格顏色 --- */
   color: var(--text);
 }
 
-/* --- ⭐ 修正 2：Smooth 關閉 --- */
-/* 當 .is-closing 被加入時，即使 [open] 還在，也強制滑出 */
 details.is-closing[open] .content-overlay {
   transform: translateX(100%);
   pointer-events: none;

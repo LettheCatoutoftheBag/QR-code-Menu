@@ -2,7 +2,6 @@ const CONFIG = {
   LANG_KEY: "orsir_lang",
   LANGS: ["zh", "en", "yue", "ko", "ja"],
 
-  // --- ⭐ 修正：更新資料來源 ---
   DATA_SOURCES: {
     // (更新為 GSheet URL)
     pour_over:
@@ -18,7 +17,6 @@ const CONFIG = {
     selected_exp:
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vQnd0JWS45gYrWxcVQMkacAzikRmNOQHnglkpi4SE4bTjV-aloPPRF86k1Wi3__1XebbvQeruK6E8a4/pub?gid=1118953982&single=true&output=csv",
   },
-  // --- 修正結束 ---
 
   IMG_BASE_PATH: "images/",
 };

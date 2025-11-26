@@ -1,7 +1,3 @@
-/* ========================================
-   特選套組卡片樣式
-   ======================================== */
-
 /* 卡片容器 */
 .exp-card {
   background: white;
@@ -152,9 +148,7 @@
   margin-top: auto;
 }
 
-/* ========================================
-   響應式設計（手機版）
-   ======================================== */
+/* === RWD(Mobile) ===*/
 
 @media (max-width: 768px) {
   .exp-card {
@@ -189,17 +183,9 @@
   }
 }
 
-/* ========================================
-   無圖片時的樣式
-   ======================================== */
-
 .exp-card:not(:has(.exp-image-section)) .exp-content-section {
   max-width: 100%;
 }
-
-/* ========================================
-   走馬燈專用：單欄布局（像手沖豆單）
-   ======================================== */
 
 /* 走馬燈容器 */
 .exp-carousel {
@@ -212,12 +198,12 @@
 .exp-carousel-track {
   display: flex;
   transition: transform 0.4s ease-in-out;
-  cursor: grab; /* ⭐ 顯示可拖曳 */
-  user-select: none; /* ⭐ 防止選取文字 */
+  cursor: grab;
+  user-select: none;
 }
 
 .exp-carousel-track:active {
-  cursor: grabbing; /* ⭐ 拖曳中的游標 */
+  cursor: grabbing;
 }
 
 .exp-carousel-item {
@@ -225,11 +211,10 @@
   padding: 0 10px;
 }
 
-/* 走馬燈中的卡片改成單欄 */
 .exp-carousel .exp-card {
-  flex-direction: column; /* ⭐ 垂直排列 */
-  max-width: 600px; /* ⭐ 限制寬度 */
-  margin: 0 auto; /* ⭐ 置中 */
+  flex-direction: column; /* 垂直排列 */
+  max-width: 600px; /* 限制寬度 */
+  margin: 0 auto; /* 置中 */
 }
 
 .exp-carousel .exp-image-section {
