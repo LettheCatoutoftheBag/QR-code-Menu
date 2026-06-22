@@ -3,13 +3,14 @@ const I18N = {
     title: "歐舍咖啡線上菜單",
     subtitle: {
       pour_over:
-        "· 莊園級 $150/杯\n· 競賽級 $200/杯\n· 瑰夏 $300/杯\n· 限量版價格請至櫃檯詢問",
+        "· 莊園級 $170/杯\n· 競賽級 $250/杯\n· 瑰夏 $350/杯\n· 其餘品項價格請至櫃檯詢問為準。\n· 為保留更多油脂感與增添層次，濾杯採用金屬濾網，杯底有些許細粉屬正常現象。",
       espresso:
-        "· 使用義大利 La Marzocco 咖啡機\n· 嚴選單一產區咖啡豆\n· 每日新鮮研磨萃取",
-      signature: "· 主廚特調系列\n· 結合在地食材與咖啡\n· 每季推出限定風味",
-      beverages: "· 精選茶飲與特調飲品\n· 無咖啡因選項\n· 適合各年齡層",
-      desserts: "· 當日限量供應\n· 職人手工製作\n· 完美搭配咖啡",
-      selected_exp: "· 精選體驗套組\n· 一次品嚐多種風味\n· 超值優惠組合",
+        "· 使用義大利 La Marzocco 咖啡機。\n· 嚴選精品咖啡豆。\n· 新鮮研磨萃取後冰鎮，厚度更飽滿。",
+      signature: "· 結合在地食材與精品咖啡。\n· 不定期推出季節限定風味。",
+      beverages: "· 精選茶葉與特調飲品\n· 無咖啡因選項。\n· 適合各年齡層",
+      desserts:
+        "· 為限量供應，定時輪換。\n· 職人手工製作。\n· 與咖啡完美搭配。",
+      selected_exp: "· 精選體驗套組。\n· 一次品嚐多種風味。\n· 超值優惠組合。",
     },
     tabs: {
       pour_over: "手沖豆單",
@@ -44,17 +45,17 @@ const I18N = {
     title: "Orsir Coffee Menu",
     subtitle: {
       pour_over:
-        "· Estate $150/cup\n· Competition $200/cup\n· Geisha $300/cup\n· Limited edition prices at counter",
+        "· Estate Tier: $170/cup\n· Competition Tier: $250/cup\n· Geisha: $350/cup\n· For other items, please inquire at the counter for pricing.\n· To retain more natural oils and enhance complexity, we use a metal mesh filter. A small amount of fine sediment at the bottom of the cup is normal.",
       espresso:
-        "· Italian La Marzocco machine\n· Single origin beans\n· Freshly ground daily",
+        "· Brewed using an Italian La Marzocco espresso machine.\n· Carefully selected specialty coffee beans.\n· Freshly ground, extracted, and chilled to deliver a richer, fuller body.",
       signature:
-        "· Chef's special creations\n· Local ingredients & coffee\n· Seasonal limited flavors",
+        "· Combining local ingredients with specialty coffee.\n· Seasonal limited flavors released periodically.",
       beverages:
-        "· Premium tea & specialty drinks\n· Caffeine-free options\n· Suitable for all ages",
+        "· Curated teas and specialty drinks.\n· Caffeine-free options available.\n· Perfect for all ages.",
       desserts:
-        "· Daily limited supply\n· Handcrafted by artisans\n· Perfect coffee pairing",
+        "· Limited daily availability with regular rotations.\n· Artisan hand-crafted desserts.\n· A perfect pairing with our coffee.",
       selected_exp:
-        "· Selected Experience Sets\n· Taste multiple flavors at once\n· Great value combos",
+        "· Curated tasting experience sets.\n· Savor multiple flavor profiles at once.\n· Excellent value combination sets.",
     },
     tabs: {
       pour_over: "Pour-Over",
@@ -86,16 +87,17 @@ const I18N = {
     },
   },
   yue: {
-    title: "歐舍咖啡線上菜單",
+    title: "ORSIR Menu",
     subtitle: {
       pour_over:
-        "· 莊園級 $150/杯\n· 競賽級 $200/杯\n· 瑰夏 $300/杯\n· 限量版價格請至櫃檯查詢",
+        "· 莊園級 $170/杯\n· 競賽級 $250/杯\n· 瑰夏 $350/杯\n· 其餘品項價格請至櫃檯詢問為準。\n· 為保留更多油脂感與增添層次，濾杯採用金屬濾網，杯底有些許細粉屬正常現象。",
       espresso:
-        "· 使用意大利 La Marzocco 咖啡機\n· 嚴選單一產區咖啡豆\n· 每日新鮮研磨萃取",
-      signature: "· 主廚特調系列\n· 結合本地食材與咖啡\n· 每季推出限定風味",
-      beverages: "· 精選茶飲與特調飲品\n· 無咖啡因選項\n· 適合各年齡層",
-      desserts: "· 當日限量供應\n· 職人手工製作\n· 完美配搭咖啡",
-      selected_exp: "· 精選體驗套組\n· 一次品嚐多種風味\n· 超值優惠組合",
+        "· 使用義大利 La Marzocco 咖啡機。\n· 嚴選精品咖啡豆。\n· 新鮮研磨萃取後冰鎮，厚度更飽滿。",
+      signature: "· 結合在地食材與精品咖啡。\n· 不定期推出季節限定風味。",
+      beverages: "· 精選茶葉與特調飲品\n· 無咖啡因選項。\n· 適合各年齡層",
+      desserts:
+        "· 為限量供應，定時輪換。\n· 職人手工製作。\n· 與咖啡完美搭配。",
+      selected_exp: "· 精選體驗套組。\n· 一次品嚐多種風味。\n· 超值優惠組合。",
     },
     tabs: {
       pour_over: "手沖豆單",
@@ -130,16 +132,17 @@ const I18N = {
     title: "오셔 커피 메뉴",
     subtitle: {
       pour_over:
-        "· 에스테이트 $150/잔\n· 대회급 $200/잔\n· 게이샤 $300/잔\n· 한정판 가격은 카운터 문의",
+        "· 싱글 오리진 에스테이트: $170/잔\n· 컴페티션 등급: $250/잔\n· 게이샤: $350/잔\n· 기타 품목의 가격은 카운터에 문의해 주시기 바랍니다.\n· 더 풍부한 오일감과 깊은 풍미를 살리기 위해 금속 필터를 사용합니다. 잔 바닥에 약간의 미분이 남는 것은 정상적인 현상입니다.",
       espresso:
-        "· 이탈리아 La Marzocco 머신 사용\n· 엄선된 단일 원산지 원두\n· 매일 신선하게 추출",
+        "· 이탈리아 라마르조코(La Marzocco) 에스프레소 머신을 사용합니다.\n· 엄선된 스페셜티 커피 원두만을 사용합니다.\n· 갓 분쇄하여 추출 후 칠링(급랭)하여 더욱 묵직하고 풍부한 바디감을 느낄 수 있습니다.",
       signature:
-        "· 셰프 특별 시리즈\n· 현지 재료와 커피의 조화\n· 계절별 한정 맛",
+        "· 로컬 식재료와 스페셜티 커피의 만남.\n· 시즌 한정 메뉴가 주기적으로 출시됩니다.",
       beverages:
-        "· 프리미엄 차와 특별 음료\n· 디카페인 옵션\n· 모든 연령층 적합",
-      desserts: "· 매일 한정 공급\n· 장인의 수제작\n· 커피와 완벽한 페어링",
+        "· 엄선된 티(Tea) 및 시그니처 음료.\n· 디카페인 옵션 제공.\n· 모든 연령대가 즐기기 좋습니다.",
+      desserts:
+        "· 한정 수량으로 판매되며 정기적으로 변경됩니다.\n· 파티시에가 수제로 정성껏 만듭니다.\n· 커피와 완벽한 조화를 이룹니다.",
       selected_exp:
-        "· 엄선된 체험 세트\n· 다양한 맛을 한 번에\n· 가성비 좋은 세트",
+        "· 엄선된 테이스팅 체험 세트.\n· 다양한 풍미를 한 번에 음미해 보세요.\n· 합리적인 가격의 스페셜 가성비 세트.",
     },
     tabs: {
       pour_over: "푸어오버",
@@ -174,15 +177,17 @@ const I18N = {
     title: "オーシャーコーヒー",
     subtitle: {
       pour_over:
-        "· エステート $150/杯\n· コンペ $200/杯\n· ゲイシャ $300/杯\n· 限定版はカウンターへ",
+        "· エステート（農園）級：$170/杯\n· コンペティション（競技）級：$250/杯\n· ゲイシャ：$350/杯\n· その他のメニューの価格はカウンターにてご確認ください。\n· より豊かなオイル感と重層的な味わいをお楽しみいただくため、金属フィルターを採用しております。カップの底に微粉が残る場合がございますが、品質には問題ありません。",
       espresso:
-        "· イタリア La Marzocco マシン使用\n· 厳選シングルオリジン豆\n· 毎日新鮮に抽出",
+        "· イタリア製マルゾッコ（La Marzocco）のエスプレッソマシンを使用。\n· 厳選された最高級スペシャルティコーヒー豆。\n· 挽きたてを抽出した後に急冷することで、より濃厚でコクのある味わいに仕上げています。",
       signature:
-        "· シェフスペシャルシリーズ\n· 地元食材とコーヒーの融合\n· 季節限定フレーバー",
+        "· 地元の食材とスペシャルティコーヒーの融合。\n· 季節限定フレーバーを随時リリース。",
       beverages:
-        "· プレミアムティーと特製ドリンク\n· カフェインフリーオプション\n· 全年齢対応",
-      desserts: "· 毎日限定供給\n· 職人の手作り\n· コーヒーと完璧なペアリング",
-      selected_exp: "· 厳選体験セット\n· 様々な味を一度に\n· お得なセット",
+        "· 厳選された茶葉と特製ドリンク。\n· ノンカフェインの選択肢もご用意。\n· お子様から大人までどなたでもお楽しみいただけます。",
+      desserts:
+        "· 数量限定、定期的にメニューが入れ替わります。\n· 職人によるこだわりのハンドメイド。\n· コーヒーとのペアリングに最適です。",
+      selected_exp:
+        "· 厳選された体験テイスティングセット。\n· 一度に多彩なフレーバーをお楽しみいただけます。\n· お得なスペシャルプライスセット。",
     },
     tabs: {
       pour_over: "ハンドドリップ",
